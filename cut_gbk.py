@@ -1,3 +1,5 @@
+#! /usr/bin/python
+
 import sys
 import os
 import argparse
@@ -30,8 +32,6 @@ def main(argv):
 	parser.add_argument('-c','--contig', required=False, help="identifier of contig to be cut (needed when coordinates are given and there is more than one GenBank record in the input file)")
 	
 	args=parser.parse_args()
-	
-	print(__doc__)
 	
 	#input file
 	gbk_in=SeqIO.to_dict(SeqIO.parse(args.inputfile,"genbank"))
@@ -68,7 +68,7 @@ def main(argv):
 		sys.exit("Error: Start and end are neither valid integers nor valid locus_tags.")
 	
 	
-	
+	print("\nCutting contig "+contig+" from "+str(coo_start_pos)+" to "+str(coo_end_pos)+"\n")
 	
 	gbk_out.write(gbk_in[contig][coo_start_pos:coo_end_pos].format("genbank"))
 	gbk_out.close()
