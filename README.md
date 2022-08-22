@@ -2,7 +2,7 @@
 
 Extract a segment from a GenBank file using coordinates or locus_tags.
 
-
+```bash
 usage: cut_gbk.py [-h] -i INPUTFILE -s START -e END [-c CONTIG]
 
 optional arguments:
@@ -16,4 +16,4 @@ optional arguments:
                         identifier of contig to be cut (needed when
                         coordinates are given and there is more than one
                         GenBank record in the input file)
-
+```
